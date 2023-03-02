@@ -2,15 +2,6 @@
 Palidroma
 Chiedere all’utente di inserire una parola
 Creare una funzione per capire se la parola inserita è palindroma
-
-
-Pari e Dispari
-L’utente sceglie pari o dispari
- e inserisce un numero da 1 a 5.
-Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
-Sommiamo i due numeri
-Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
-Dichiariamo chi ha vinto.
 */
 
 /*
@@ -50,4 +41,57 @@ function testPalindroma(text){
     }
    
 
+}
+
+
+//////////////////////////////////////
+/* 
+Pari e Dispari
+L’utente sceglie pari o dispari
+e inserisce un numero da 1 a 5.
+Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
+Sommiamo i due numeri
+Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
+Dichiariamo chi ha vinto.
+*/
+
+/*
+-input inserire un numero da 1 a 5 
+-button scegliere pari o dispari
+-funzione per generare un numero random da 1 a 5
+-sommare i due numeri
+-funzione per stabilire se la somma sia para o dispari
+-dichiarare chi ha vinto
+*/
+
+let numberUser = document.getElementById('number-user');
+let buttonEven = document.getElementById('button-even');
+let buttonOdd = document.getElementById('button-odd');
+let outputResults = document.getElementById('output-results');
+
+buttonEven.addEventListener('click',function(){
+    
+    controlNumberUser(numberUser)
+    
+})
+
+buttonOdd.addEventListener('click',function(){
+    
+    controlNumberUser(numberUser)
+    
+})
+
+
+
+
+
+
+
+
+function controlNumberUser(number){
+    if(number.value > 5||number.value == 0 ){
+        alert('scegli un numero da 1 a 5' )
+        number.value='';
+    }
+    console.log(number.value)
 }
