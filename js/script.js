@@ -64,21 +64,37 @@ Dichiariamo chi ha vinto.
 -dichiarare chi ha vinto
 */
 
-let numberUser = document.getElementById('number-user');
+let numberUser = document.getElementById(('number-user'));
 let buttonEven = document.getElementById('button-even');
 let buttonOdd = document.getElementById('button-odd');
 let outputResults = document.getElementById('output-results');
+let somma = 0;
+parseInt(numberUser.value)
 
 buttonEven.addEventListener('click',function(){
+    somma = 0;
     
-    controlNumberUser(numberUser)
+    controlNumberUser(numberUser.value)
     
+    somma += parseInt(numberUser.value)
+
+    somma += randomNumber()
+
+    outputResults.innerText=('somma ' +' ' + somma)
 })
+
 
 buttonOdd.addEventListener('click',function(){
     
-    controlNumberUser(numberUser)
+    somma = 0;
     
+    controlNumberUser(numberUser.value)
+    
+    somma += parseInt(numberUser.value)
+
+    somma += randomNumber()
+
+    outputResults.innerText=('somma ' +' ' + somma)
 })
 
 
@@ -88,10 +104,27 @@ buttonOdd.addEventListener('click',function(){
 
 
 
+
+
+function randomNumber(){
+    let random = Math.floor(Math.random() * (5 - 1 + 1) + 1)
+
+    console.log('numero random' +' ' + random)
+    return random
+
+}
+
+
 function controlNumberUser(number){
-    if(number.value > 5||number.value == 0 ){
+
+    if(number > 5||number == 0 ){
         alert('scegli un numero da 1 a 5' )
-        number.value='';
+        number='';
+        outputResults.style.display='none'
+
+    }else{
+        outputResults.style.display='block'
+
     }
-    console.log(number.value)
+    // console.log('numero utente' +' ' +number)
 }
