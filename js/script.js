@@ -69,39 +69,47 @@ let buttonEven = document.getElementById('button-even');
 let buttonOdd = document.getElementById('button-odd');
 let outputResultsNumber = document.getElementById('output-results-number');
 let outputResults = document.getElementById('output-results');
-let somma = 0;
-parseInt(numberUser.value)
+let somma ;
+
 
 buttonEven.addEventListener('click',function(){
-    somma = 0;
+    
     even=true
-
     
-    controlNumberUser(numberUser.value)
+    somma = 0;
     
-    somma += parseInt(numberUser.value)
+    let pcNumber = randomNumber();
 
-    somma += randomNumber()
+    somma += parseInt(controlNumberUser(numberUser.value));
 
-    outputResultsNumber.innerText=('somma ' +' ' + somma)
-    evenOrOdd(somma,even)
+    somma += pcNumber;
+
+    outputResultsNumber.innerText=(`Il tuo numero è: ${numberUser.value} \n Il numero del pc è: ${pcNumber} \n La somma è: ${somma}`);
+    
+    evenOrOdd(somma,even);
+
+    numberUser.value='';
+
 })
 
 
 buttonOdd.addEventListener('click',function(){
     
+    even=false;
+    
     somma = 0;
-    even=false
+
+    let pcNumber = randomNumber();
+
+    somma += parseInt(controlNumberUser(numberUser.value));
+
+    somma += pcNumber;
+
+    outputResultsNumber.innerText=(`Il tuo numero è: ${numberUser.value} \n Il numero del pc è: ${pcNumber} \n La somma è: ${somma}`);
+
+    evenOrOdd(somma,even);
     
-    controlNumberUser(numberUser.value)
-    
-    somma += parseInt(numberUser.value)
-
-    somma += randomNumber()
-
-    outputResultsNumber.innerText=('somma ' +' ' + somma)
-    evenOrOdd(somma,even)
-
+    numberUser.value='';
 })
 
 
@@ -130,9 +138,7 @@ function evenOrOdd(somma,even){
 function randomNumber(){
     let random = Math.floor(Math.random() * (5 - 1 + 1) + 1)
 
-    console.log('numero random' +' ' + random)
     return random
-
 }
 
 
@@ -141,12 +147,15 @@ function controlNumberUser(number){
     if(number > 5 || number == 0 ){
         alert('scegli un numero da 1 a 5' )
         outputResults.style.display='none'
-        number='';
+        outputResultsNumber.style.display='none'
+        
 
     }else{
         outputResults.style.display='block'
+        outputResultsNumber.style.display='block'
 
     }
+    return number
     
     // console.log('numero utente' +' ' +number)
 }
