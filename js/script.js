@@ -67,12 +67,15 @@ Dichiariamo chi ha vinto.
 let numberUser = document.getElementById(('number-user'));
 let buttonEven = document.getElementById('button-even');
 let buttonOdd = document.getElementById('button-odd');
+let outputResultsNumber = document.getElementById('output-results-number');
 let outputResults = document.getElementById('output-results');
 let somma = 0;
 parseInt(numberUser.value)
 
 buttonEven.addEventListener('click',function(){
     somma = 0;
+    even=true
+
     
     controlNumberUser(numberUser.value)
     
@@ -80,13 +83,15 @@ buttonEven.addEventListener('click',function(){
 
     somma += randomNumber()
 
-    outputResults.innerText=('somma ' +' ' + somma)
+    outputResultsNumber.innerText=('somma ' +' ' + somma)
+    evenOrOdd(somma,even)
 })
 
 
 buttonOdd.addEventListener('click',function(){
     
     somma = 0;
+    even=false
     
     controlNumberUser(numberUser.value)
     
@@ -94,16 +99,32 @@ buttonOdd.addEventListener('click',function(){
 
     somma += randomNumber()
 
-    outputResults.innerText=('somma ' +' ' + somma)
+    outputResultsNumber.innerText=('somma ' +' ' + somma)
+    evenOrOdd(somma,even)
+
 })
 
 
+// function///////////////////////////////////
 
+function evenOrOdd(somma,even){
+    if(even ){
 
-
-
-
-
+        if(somma % 2 == 0){
+            outputResults.innerText=('hai vinto')
+        }else{
+            outputResults.innerText=('hai perso')
+    
+        }
+    }else if(!even){
+        if(somma % 2 == 0){
+            outputResults.innerText=('hai perso')
+        }else{
+            outputResults.innerText=('hai vinto')
+    
+        }
+    }
+}
 
 
 function randomNumber(){
@@ -117,14 +138,15 @@ function randomNumber(){
 
 function controlNumberUser(number){
 
-    if(number > 5||number == 0 ){
+    if(number > 5 || number == 0 ){
         alert('scegli un numero da 1 a 5' )
-        number='';
         outputResults.style.display='none'
+        number='';
 
     }else{
         outputResults.style.display='block'
 
     }
+    
     // console.log('numero utente' +' ' +number)
 }
