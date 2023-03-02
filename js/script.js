@@ -20,6 +20,8 @@ let outputTest = document.getElementById('output-test');
 buttonTest.addEventListener('click',function(){
     
     testPalindroma(textUser.value)
+
+    textUser.value='';
     
 });
 
@@ -29,16 +31,21 @@ function testPalindroma(text){
     let newArray = text
     let newArrayReverse = text.split('').reverse().join('')
     
-    
-    if(newArray == newArrayReverse){
-    console.log('è palindroma')
-    outputTest.innerText=('è palindroma')
-    // console.log(newArray,newArrayReverse)
+    if(!isNaN(text)){
+        alert('Inserisci una parola')
     }else{
-    console.log('non è palindroma')
-    outputTest.innerText=('non è palindroma')
-    // console.log(newArray,newArrayReverse)
+
+        if(newArray == newArrayReverse){
+        console.log('è palindroma')
+        outputTest.innerText=('è palindroma')
+        // console.log(newArray,newArrayReverse)
+        }else{
+        console.log('non è palindroma')
+        outputTest.innerText=('non è palindroma')
+        // console.log(newArray,newArrayReverse)
+        }
     }
+    
    
 
 }
@@ -157,5 +164,5 @@ function controlNumberUser(number){
     }
     return number
     
-    // console.log('numero utente' +' ' +number)
+    
 }

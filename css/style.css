@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    margin: 20px;
+    background-color: darkcyan;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+
+}
+button{
+    border-radius: 10px;
+    padding: 3px;
+    background-color: #2b7bec;
+    color: white;
+    border-color: aqua;
+}
+
+input{
+    border-radius: 5px;
+
+}
